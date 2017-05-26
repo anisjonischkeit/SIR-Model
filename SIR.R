@@ -1,26 +1,24 @@
 
-# Simulation of fall of ball
-# Introduction to Computational Science -- Shiflet & Shiflet 
-# Module 4.1, example 1, p.115
-# R solution by Stephen Davies, University of Mary Washington
+# Simulation of an SIR Model
+# Anis Jonischkeit - Scientific and Parallel Computing
 
 # Set up our time increment and our vector (array) of x (time) values
-deltaX = 0.01                   # s
+deltaT = 0.01                   # time interval
 
-# from, to, interval
-t = seq(0,14,deltaX)             # s
+# start day, end day, time interval
+t = seq(0,20,deltaT)
 
 # Constants
-r = 0.00218                     # infection rate: people/day
-a = 0.5                         # recovery rate: (infected people)/day
+r = 0.00218                     # infection rate: people/(1 day)
+a = 0.5                         # recovery rate: (infected people)/(1 day)
 
-rT = deltaX * r                 # r at at a single time step
-aT = deltaX * a                 # a at at a single time step
+rT = deltaT * r                 # r at at a single time step
+aT = deltaT * a                 # a at at a single time step
 
 # Set up our stock variables and initial conditions
-S = vector(length=length(t))     # susceptibles
-I = vector(length=length(t))        # infecteds
-R = vector(length=length(t))       # recovereds
+S = vector(length=length(t))    # susceptibles
+I = vector(length=length(t))    # infecteds
+R = vector(length=length(t))    # recovereds
 
 S[1] = 762
 I[1] = 1
@@ -44,17 +42,9 @@ for (i in 2:length(t)) {
 
 # speed = abs(velocity)
 
-par(mfrow=c(1,4))
+par(mfrow=c(1,1))
 
-plot(t, S, type="l", col="black", lwd=2, xlab='Time (days)', ylab='Number of People')#, xlab='Time', ylab='People')
+plot(t, S, type="l", col="black", lwd=2, xlab='Time (days)', ylab='Number of People', ylim=c(0, 800))
 lines(t, I, col="green", lwd=2)
 lines(t, R, col="blue", lwd=2)
-legend(10, 400, c("Susceptible", "Infected", "Recovered"), lty=c(1, 1), lwd=c(2,2), col=c("black", "green", "blue") )
-
-plot(t, S, type="l", col="black", lwd=2, xlab='Time (days)', ylab='Number of People')#, xlab='Time', ylab='People')
-plot(t, I, type="l", col="green", lwd=2, xlab='Time (days)', ylab='Infected')#, ann=FALSE, axes=FALSE,)
-plot(t, R, type="l", col="green", lwd=2, xlab='Time (days)', ylab='Recovered')#, ann=FALSE, axes=FALSE,)
-# par(new=TRUE)
-# plot(t,R,type="l",col="blue",lwd=2, ann=FALSE, axes=FALSE,)
-# points(t, I, pch="*", col= 'red')
-
+legend(15, 550, c("Susceptible", "Infected", "Recovered"), lty=c(1, 1), lwd=c(2,2), col=c("black", "green", "blue") )
