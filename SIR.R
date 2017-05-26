@@ -44,10 +44,17 @@ for (i in 2:length(t)) {
 
 # speed = abs(velocity)
 
-par(mfrow=c(3,1))
-plot(t,S,type="l",col="black",lwd=2)#, xlab='Time', ylab='People')
-plot(t,I,type="l",col="green",lwd=2)#, ann=FALSE, axes=FALSE,)
-plot(t,R,type="l",col="green",lwd=2)#, ann=FALSE, axes=FALSE,)
+par(mfrow=c(1,4))
+
+plot(t, S, type="l", col="black", lwd=2, xlab='Time (days)', ylab='Number of People')#, xlab='Time', ylab='People')
+lines(t, I, col="green", lwd=2)
+lines(t, R, col="blue", lwd=2)
+legend(10, 400, c("Susceptible", "Infected", "Recovered"), lty=c(1, 1), lwd=c(2,2), col=c("black", "green", "blue") )
+
+plot(t, S, type="l", col="black", lwd=2, xlab='Time (days)', ylab='Number of People')#, xlab='Time', ylab='People')
+plot(t, I, type="l", col="green", lwd=2, xlab='Time (days)', ylab='Infected')#, ann=FALSE, axes=FALSE,)
+plot(t, R, type="l", col="green", lwd=2, xlab='Time (days)', ylab='Recovered')#, ann=FALSE, axes=FALSE,)
 # par(new=TRUE)
 # plot(t,R,type="l",col="blue",lwd=2, ann=FALSE, axes=FALSE,)
 # points(t, I, pch="*", col= 'red')
+
