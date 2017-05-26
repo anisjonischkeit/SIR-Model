@@ -40,11 +40,10 @@ for (i in 2:length(t)) {
     R[i] = R[i-1] + dR
 }
 
-# speed = abs(velocity)
-
+# split the frame int 1 column and 1 row ie. use the whole fram for 1 graph
 par(mfrow=c(1,1))
 
-plot(t, S, type="l", col="black", lwd=2, xlab='Time (days)', ylab='Number of People', ylim=c(0, 800))
+plot(t, S, type="l", col="black", main="Simple SIR Model", lwd=2, xlab='Time (days)', ylab='Number of People', ylim=c(0, 800))
 lines(t, I, col="green", lwd=2)
 lines(t, R, col="blue", lwd=2)
-legend(15, 550, c("Susceptible", "Infected", "Recovered"), lty=c(1, 1), lwd=c(2,2), col=c("black", "green", "blue") )
+legend(15, 600, c("Susceptible", "Infected", "Recovered"), lty=c(1, 1), lwd=c(2,2), col=c("black", "green", "blue") )
