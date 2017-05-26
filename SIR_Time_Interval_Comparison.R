@@ -2,7 +2,6 @@
 # Anis Jonischkeit - Scientific and Parallel Computing
 
 # Set up time intervals
-length(deltaTs) = 4
 deltaTs = c(2, 1, 0.1, 0.01, 0.001)
 colors = c("black", "green", "blue", "purple", "orange")
 
